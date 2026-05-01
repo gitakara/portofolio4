@@ -18,3 +18,22 @@ window.onbeforeunload = () => {
     form.reset();
   }
 };
+// Tambahkan di bagian bawah file js/main.js
+const toggleBtn = document.querySelector("#dark-mode-toggle");
+const body = document.body;
+
+// Cek tema di local storage saat halaman dimuat
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-theme");
+  toggleBtn.checked = true;
+}
+
+toggleBtn.addEventListener("change", () => {
+  if (toggleBtn.checked) {
+    body.classList.add("dark-theme");
+    localStorage.setItem("theme", "dark");
+  } else {
+    body.classList.remove("dark-theme");
+    localStorage.setItem("theme", "light");
+  }
+});
