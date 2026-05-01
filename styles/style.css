@@ -28,6 +28,9 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background-color: var(--primaryBackgroundColor);
+  color: var(--secondaryTextColor);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Penting agar perubahan tidak kaku */
 }
 
 h1,
@@ -73,9 +76,11 @@ a {
 
 /* Buttons */
 .btn {
+  margin-top: 20px;
   padding: 1rem 1.5rem;
-  background: white;
-  border: 1.5px solid var(--borderColor);
+  background: --thirdBackgroundColor;
+  border-radius: 8px;
+  border: 1.5px solid var(--lineColor);
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
@@ -159,7 +164,7 @@ nav ul li a {
 .burger div {
   width: 25px;
   height: 2px;
-  background-color: #000;
+  background-color: var(--primaryTextColor);
   margin: 7px;
   transition: all 0.3s;
   z-index: 99;
@@ -477,4 +482,88 @@ footer {
 
 .footer-icons a:hover svg {
   fill: #000;
+}
+/* --- Toggle Switch Styling --- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px; /* Membuat bentuk pill */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "☀️"; /* Ikon Matahari */
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider {
+  background-color: var(--primaryIconColor);
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+  content: "🌙"; /* Ikon Bulan */
+}
+
+/* --- Dark Mode Variables --- */
+body.dark-theme {
+  --primaryBackgroundColor: #1a1a1a;
+  --secondaryBackgroundColor: #242424;
+  --thirdBackgroundColor: #2d2d2d;
+  --primaryTextColor: #e1e1e1;
+  --secondaryTextColor: #a0a0a0;
+  --borderColor: #333;
+  --lineColor: #444;
+}
+
+/* Memastikan transisi warna halus saat switch ditekan */
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Penyesuaian ikon di dark mode agar tetap terlihat */
+body.dark-theme .footer-icons svg {
+  fill: #f1f1f1;
+}
+
+/* Update di style.css */
+.portfolio-title a svg {
+  fill: var(--primaryTextColor); /* Pastikan warna default mengikuti teks utama */
+  transition: 0.2s ease-in-out;
+}
+
+/* Agar ikon di dalam footer juga menyesuaikan dengan benar */
+.footer-icons svg {
+  fill: var(--secondaryTextColor);
 }
