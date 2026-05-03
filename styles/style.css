@@ -483,6 +483,7 @@ footer {
 .footer-icons a:hover svg {
   fill: #000;
 }
+
 /* --- Toggle Switch Styling --- */
 .switch {
   position: relative;
@@ -501,7 +502,7 @@ footer {
   position: absolute;
   cursor: pointer;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #ccc;
+  background-color: rgb(99, 99, 99);
   transition: .4s;
   border-radius: 34px; /* Membuat bentuk pill */
   display: flex;
@@ -512,12 +513,12 @@ footer {
 
 .slider:before {
   position: absolute;
-  content: "☀️"; /* Ikon Matahari */
+  content: "🔆"; /* Ikon Matahari */
   height: 22px;
   width: 22px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: black;
   transition: .4s;
   border-radius: 50%;
   display: flex;
@@ -528,7 +529,7 @@ footer {
 }
 
 input:checked + .slider {
-  background-color: var(--primaryIconColor);
+  background-color:  rgb(99, 99, 99);
 }
 
 input:checked + .slider:before {
